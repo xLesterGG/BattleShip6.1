@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="MyGame.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug-Windows|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="src\UtilityFunctions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\user\Desktop\BattleShip6.1\src\Model\AIPlayer.cs">
     <Files>
       <File FileName="src\Model\ISeaGrid.cs" Line="1" Column="1" />
       <File FileName="src\Model\AIOption.cs" Line="1" Column="1" />
@@ -9,8 +9,9 @@
       <File FileName="src\Model\Player.cs" Line="1" Column="1" />
       <File FileName="src\EndingGameController.cs" Line="1" Column="1" />
       <File FileName="src\Model\Ship.cs" Line="1" Column="1" />
-      <File FileName="src\UtilityFunctions.cs" Line="154" Column="7" />
+      <File FileName="src\UtilityFunctions.cs" Line="1" Column="1" />
       <File FileName="src\GameController.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\user\Desktop\BattleShip6.1\src\Model\AIPlayer.cs" Line="30" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

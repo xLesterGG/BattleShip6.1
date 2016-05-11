@@ -33,6 +33,7 @@ static class UtilityFunctions
 	private static readonly Color LARGE_MISS = SwinGame.RGBAColor(1, 147, 220, 255);
 
 	private static readonly Color LARGE_HIT = SwinGame.RGBAColor(252, 2, 3, 255);
+
 	private static readonly Color OUTLINE_COLOR = SwinGame.RGBAColor(5, 55, 88, 255);
 	private static readonly Color SHIP_FILL_COLOR = Color.Gray;
 	private static readonly Color SHIP_OUTLINE_COLOR = Color.White;
@@ -129,6 +130,7 @@ static class UtilityFunctions
 
 				Color fillColor = default(Color);
 				bool draw = false;
+				bool hit = false;
 
 				draw = true;
 
@@ -143,11 +145,20 @@ static class UtilityFunctions
 						else
 							fillColor = LARGE_MISS;
 						break;
-					case TileView.Hit:
-						if (small)
-							fillColor = SMALL_HIT;
-						else
-							fillColor = LARGE_HIT;
+				case TileView.Hit:
+					hit = true;
+					if (small)
+					{
+						fillColor = SMALL_HIT;
+
+					}
+					else
+					{
+						fillColor = LARGE_HIT;
+
+					}
+
+
 						break;
 					case TileView.Sea:
 					case TileView.Ship:
@@ -160,8 +171,17 @@ static class UtilityFunctions
 
 				if (draw) {
 					SwinGame.FillRectangle(fillColor, colLeft, rowTop, cellWidth, cellHeight);
+
+
+
 					if (!small) {
 						SwinGame.DrawRectangle(OUTLINE_COLOR, colLeft, rowTop, cellWidth, cellHeight);
+						if (hit)
+						{
+							SwinGame.DrawBitmap ("explode.png", colLeft, rowTop);
+						}
+
+
 					}
 				}
 			}
@@ -195,6 +215,7 @@ static class UtilityFunctions
 
 			if (!small) {
 				SwinGame.DrawBitmap(GameResources.GameImage(shipName), colLeft, rowTop);
+
 			} else {
 				SwinGame.FillRectangle(SHIP_FILL_COLOR, colLeft, rowTop, shipWidth, shipHeight);
 				SwinGame.DrawRectangle(SHIP_OUTLINE_COLOR, colLeft, rowTop, shipWidth, shipHeight);
@@ -253,12 +274,16 @@ static class UtilityFunctions
 
 	public static void AddExplosion(int row, int col)
 	{
-		AddAnimation(row, col, "Splash");
+		AddAnimation(row, col, "Explosion");
+		SwinGame.DrawBitmap("explode.png", row, col);
+
+
 	}
 
 	public static void AddSplash(int row, int col)
 	{
 		AddAnimation(row, col, "Splash");
+
 	}
 
 

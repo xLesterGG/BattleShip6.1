@@ -124,12 +124,14 @@ public static class GameController //added static
 	private static void PlayHitSequence(int row, int column, bool showAnimation)
 	{
 		if (showAnimation) {
-			UtilityFunctions.AddExplosion(row, column);
+            UtilityFunctions.AddExplosion(row, column);
+
 		}
 
 		Audio.PlaySoundEffect(GameResources.GameSound("Hit"));
 
 		UtilityFunctions.DrawAnimationSequence();
+
 	}
 
 	/// <summary>
@@ -192,6 +194,8 @@ public static class GameController //added static
 				break;
 			case ResultOfAttack.Hit:
 				PlayHitSequence(result.Row, result.Column, isHuman);
+	
+
 				break;
 			case ResultOfAttack.Miss:
 				PlayMissSequence(result.Row, result.Column, isHuman);

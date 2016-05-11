@@ -328,10 +328,10 @@ static class MenuController
 				GameController.EndCurrentState();
 				//end game
 				break;
-			case MAIN_MENU_MUTE_BUTTON:
+			case GAME_MENU_MUTE_BUTTON:
 				SwinGame.StopMusic();
 				break;
-			case MAIN_MENU_UNMUTE_BUTTON:
+			case GAME_MENU_UNMUTE_BUTTON:
 				SwinGame.PlayMusic(GameResources.GameMusic("Background"));
 				break;
 			case GAME_MENU_QUIT_BUTTON:

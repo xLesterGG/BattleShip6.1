@@ -25,11 +25,15 @@ static class MenuController
 			"PLAY",
 			"SETUP",
 			"SCORES",
+			"MUTE",
+			"UNMUTE",
 			"QUIT"
 		},
 		new string[] {
 			"RETURN",
 			"SURRENDER",
+			"MUTE",
+			"UNMUTE",
 			"QUIT"
 		},
 		new string[] {
@@ -49,22 +53,26 @@ static class MenuController
 	private const int TEXT_OFFSET = 0;
 	private const int MAIN_MENU = 0;
 	private const int GAME_MENU = 1;
-
 	private const int SETUP_MENU = 2;
+
 	private const int MAIN_MENU_PLAY_BUTTON = 0;
 	private const int MAIN_MENU_SETUP_BUTTON = 1;
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
+	private const int MAIN_MENU_MUTE_BUTTON = 3;
+	private const int MAIN_MENU_UNMUTE_BUTTON = 4;
+	private const int MAIN_MENU_QUIT_BUTTON = 5;
 
-	private const int MAIN_MENU_QUIT_BUTTON = 3;
 	private const int SETUP_MENU_EASY_BUTTON = 0;
 	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
 	private const int SETUP_MENU_HARD_BUTTON = 2;
-
 	private const int SETUP_MENU_EXIT_BUTTON = 3;
+
 	private const int GAME_MENU_RETURN_BUTTON = 0;
 	private const int GAME_MENU_SURRENDER_BUTTON = 1;
+	private const int GAME_MENU_MUTE_BUTTON = 2;
+	private const int GAME_MENU_UNMUTE_BUTTON = 3;
+	private const int GAME_MENU_QUIT_BUTTON = 4;
 
-	private const int GAME_MENU_QUIT_BUTTON = 2;
 	private static readonly Color MENU_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
 
 	private static readonly Color HIGHLIGHT_COLOR = SwinGame.RGBAColor(1, 57, 86, 255);
@@ -271,6 +279,12 @@ static class MenuController
 			case MAIN_MENU_TOP_SCORES_BUTTON:
 				GameController.AddNewState(GameState.ViewingHighScores);
 				break;
+			case MAIN_MENU_MUTE_BUTTON:
+				SwinGame.StopMusic();
+				break;
+			case MAIN_MENU_UNMUTE_BUTTON:
+				SwinGame.PlayMusic(GameResources.GameMusic("Background"));
+				break;
 			case MAIN_MENU_QUIT_BUTTON:
 			GameController.EndCurrentState();
 				break;
@@ -313,6 +327,12 @@ static class MenuController
 				//end game menu
 				GameController.EndCurrentState();
 				//end game
+				break;
+			case MAIN_MENU_MUTE_BUTTON:
+				SwinGame.StopMusic();
+				break;
+			case MAIN_MENU_UNMUTE_BUTTON:
+				SwinGame.PlayMusic(GameResources.GameMusic("Background"));
 				break;
 			case GAME_MENU_QUIT_BUTTON:
 				GameController.AddNewState(GameState.Quitting);
